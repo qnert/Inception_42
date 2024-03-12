@@ -1,9 +1,7 @@
 FROM debian:bullseye
 
 RUN apt update -y && apt upgrade -y \
-    && apt install mariadb-server -y \
-    && apt install software-properties-common dirmngr gnupg2 -y \
-    && apt install apt-transport-https wget curl -y
+    && apt install mariadb-server -y
 
 COPY ./tools/setup.sh /usr/local/bin/
 
