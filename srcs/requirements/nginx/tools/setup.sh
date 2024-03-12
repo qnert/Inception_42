@@ -1,9 +1,9 @@
 #!/bin/bash
 
-mkdir /etc/nginx/ssl
-chmod 700 /etc/nginx/ssl
+mkdir $CERTS_
+chmod 700 $CERT_
 
-openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout /etc/nginx/ssl/key.key -out /etc/nginx/ssl/certificate.crt \
+openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout $CERTS_/key.key -out $CERTS_/certificate.crt \
       -subj "/C=DE/ST=BW/L=Heilbronn/O=42 Heilbronn/OU=IT Univeristy/CN=skunert.42.fr"
 
 echo "server{
@@ -11,8 +11,8 @@ echo "server{
   server_name $DOMAIN;
   index start.html;
 
-  ssl_certificate /etc/nginx/ssl/certificate.crt;
-  ssl_certificate_key /etc/nginx/ssl/key.key;
+  ssl_certificate $CERTS_/certificate.crt;
+  ssl_certificate_key $CERTS_/key.key;
   ssl_protocols TLSv1.3;
 }" > /etc/nginx/conf.d/main.conf
 
