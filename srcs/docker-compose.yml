@@ -14,7 +14,6 @@ services:
     #  - inception
     env_file:
       - .env
-
     restart: always
   # wordpress:
   #   image: wordpress:latest
@@ -26,5 +25,7 @@ services:
     build: ./requirements/mariadb
     ports:
       - "3306:3306"
+    env_file:
+      - .env
     restart: always
 
