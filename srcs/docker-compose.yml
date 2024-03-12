@@ -12,6 +12,9 @@ services:
      - "443:443"
     # networks:
     #  - inception
+    env_file:
+      - .env
+
     restart: always
   # wordpress:
   #   image: wordpress:latest
