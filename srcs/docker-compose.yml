@@ -13,3 +13,8 @@ services:
     # networks:
     #  - inception
     restart: always
+  # wordpress:
+  #   image: wordpress:latest
+  #   ports:
+  #     - 80:80
+  #   restart: always
