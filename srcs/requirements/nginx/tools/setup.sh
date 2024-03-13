@@ -1,6 +1,9 @@
 #!/bin/bash
 
-mkdir $CERTS_
+if [ ! -d "$CERTS_" ]; then
+  mkdir $CERTS_
+fi
+
 chmod 700 $CERTS_
 
 openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout $CERTS_/key.key -out $CERTS_/certificate.crt \
