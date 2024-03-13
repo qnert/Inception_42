@@ -18,11 +18,6 @@ echo "server{
   ssl_certificate_key $CERTS_/key.key;
   ssl_protocols TLSv1.3;
 
-  location ~ \.php$ {
-  include snippets/fastcgi-php.conf;
-  fastcgi_pass wordpress:9000;
-  }
-
 }" > /etc/nginx/conf.d/main.conf
 
 nginx -g "daemon off;"
