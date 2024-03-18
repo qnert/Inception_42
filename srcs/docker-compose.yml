@@ -42,4 +42,14 @@ services:
 
 volumes:
   db_data:
+    driver: local
+    driver_opts:
+      type: none
+      device: /home/skunert/data/db_data
+      o: bind
   wp_data:
+    driver: local
+    driver_opts:
+      type: none
+      device: /home/skunert/data/wp_data
+      o: bind
