@@ -2,12 +2,12 @@ FROM debian:bullseye
 
 WORKDIR /var/www/html
 
-# COPY ./conf/wp-config.php /var/www/html
+COPY ./tools/setup.sh /usr/local/bin/
 
+RUN chmod +x /usr/local/bin/setup.sh
 RUN apt update -y && apt upgrade -y \
-    && apt install php7.4 php7.4-fpm wget -y
+    && apt install php-fpm php-mysql curl -y
 
-RUN wget https://wordpress.org/latest.tar.gz
-RUN tar -xvzf latest.tar.gz && rm -rf latest.tar.gz
+EXPOSE 9000
 
-
+CMD ["setup.sh"]
