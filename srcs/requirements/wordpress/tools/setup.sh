@@ -20,6 +20,10 @@ wp core install --url=$DOMAIN --title="Inception" \
                  --skip-email \
                  --allow-root
 
+wp user create Simon simon@42.fr \
+              --user_pass=42 \
+              --allow-root
+
 mkdir /run/php
 
 php-fpm7.4 -F
