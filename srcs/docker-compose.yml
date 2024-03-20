@@ -5,20 +5,20 @@ networks:
     name: inception
 
 services:
-  # nginx:
-  #   container_name: nginx
-  #   build: ./requirements/nginx/.
-  #   ports:
-  #    - "443:443"
-  #   networks:
-  #    - inception
-  #   env_file:
-  #     - .env
-  #   volumes:
-  #     - wp_data:/var/www/html
-  #   depends_on:
-  #     - mariadb
-  #   restart: always
+  nginx:
+    container_name: nginx
+    build: ./requirements/nginx/.
+    ports:
+     - "443:443"
+    networks:
+     - inception
+    env_file:
+      - .env
+    volumes:
+      - wp_data:/var/www/html
+    depends_on:
+      - mariadb
+    restart: always
   wordpress:
     container_name: wordpress
     build: ./requirements/wordpress/.
@@ -44,12 +44,14 @@ services:
 
 volumes:
   db_data:
+    name: db_data
     driver: local
     driver_opts:
       type: none
       device: /home/skunert/data/db_data
       o: bind
   wp_data:
+    name: wp_data
     driver: local
     driver_opts:
       type: none

@@ -9,3 +9,6 @@ fclean:
 
 except:
 	@docker system prune --all --force --volumes
+
+vclean:
+	@cd /home/skunert/data && sudo rm -rf *
