@@ -11,4 +11,4 @@ except:
 	@docker system prune --all --force --volumes
 
 vclean:
-	@cd /home/skunert/data && sudo rm -rf *
+	@cd /home/skunert/data && sudo rm -rf ./wp_data/* && sudo rm -rf ./db_data/*
