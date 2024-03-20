@@ -12,9 +12,11 @@ wp config create \
     --dbpass=$WORDPRESS_DB_PASSWORD \
     --dbhost=$WORDPRESS_DB_HOST \
     --allow-root
+chmod 644 wp-config.php
+chmod 644 /etc/php/7.4/fpm/pool.d/www.conf
 
 wp core install --url=$DOMAIN --title="Inception" \
-                 --admin_user=$WORDPRESS_ADMIN_USER \
+                 --admin_name=$WORDPRESS_ADMIN_USER \
                  --admin_password=$WORDPRESS_ADMIN_PASSWORD \
                  --admin_email=$WORDPRESS_ADMIN_EMAIL \
                  --skip-email \
