@@ -22,8 +22,8 @@ wp core install --url=$DOMAIN --title="Inception" \
                  --skip-email \
                  --allow-root
 
-wp user create Simon simon@42.fr \
-              --user_pass=42 \
+wp user create $WORDPRESS_DB_USER $WORDPRESS_DB_USER_EMAIL \
+              --user_pass=$WORDPRESS_DB_PASSWORD \
               --allow-root
 
 mkdir /run/php
