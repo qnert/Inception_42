@@ -19,6 +19,8 @@ if [ ! -f /var/www/html/wp-config.php ]; then
         --dbpass=$WORDPRESS_DB_PASSWORD \
         --dbhost=$WORDPRESS_DB_HOST \
         --allow-root
+    wp config set WP_REDIS_HOST redis --allow-root
+    wp config set WP_REDIS_PORT 6379 --allow-root
     chmod 644 /var/www/html/wp-config.php
 fi
 
