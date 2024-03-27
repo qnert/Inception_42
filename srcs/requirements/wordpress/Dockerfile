@@ -3,7 +3,7 @@ FROM debian:bullseye
 WORKDIR /var/www/html
 
 RUN apt update -y && apt upgrade -y \
-    && apt install php-fpm php-mysql curl systemctl -y
+    && apt install php-fpm php-mysql curl redis php-redis -y
 
 COPY ./tools/setup.sh /usr/local/bin/
 COPY ./tools/www.conf /etc/php/7.4/fpm/pool.d/www.conf
