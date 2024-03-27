@@ -47,6 +47,14 @@ services:
     networks:
       - inception
     restart: always
+  # adminer:
+  #   container_name: adminer
+  #   build: ./requirements/bonus/adminer/.
+  #   networks:
+  #     - inception
+  #   volumes:
+  #     - wp_data:/var/www/html
+  #   restart: always
 
 
 volumes:
