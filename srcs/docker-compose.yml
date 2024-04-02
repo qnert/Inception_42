@@ -47,14 +47,33 @@ services:
     networks:
       - inception
     restart: always
-  # adminer:
-  #   container_name: adminer
-  #   build: ./requirements/bonus/adminer/.
-  #   networks:
-  #     - inception
-  #   volumes:
-  #     - wp_data:/var/www/html
-  #   restart: always
+  adminer:
+    container_name: adminer
+    build: ./requirements/bonus/adminer/.
+    depends_on:
+      - mariadb
+    networks:
+      - inception
+    ports:
+     - "8083:80"
+    restart: always
+  ftp-server:
+    container_name: ftp-server
+    build: ./requirements/bonus/ftp-server/.
+    depends_on:
+      - wordpress
+    ports:
+      - "21:21"
+      - "20:20"
+      - "64000-64321:64000-64321"
+    networks:
+      - inception
+    env_file:
+      - .env
+    volumes:
+      - wp_data:/home/ftp_simon/ftp
+    restart: always
+
 
 
 volumes:

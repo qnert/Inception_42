@@ -4,6 +4,9 @@ all:
 up:
 	@cd srcs && docker-compose up
 
+down:
+		@cd srcs && docker-compose down
+
 fclean:
 	@cd srcs && docker-compose down --rmi all
 
