@@ -78,8 +78,8 @@ services:
     build: ./requirements/bonus/website/.
     networks:
       - inception
-    volumes:
-      - wp_data:/var/www/html
+    ports:
+      - "8085:8085"
     restart: always
 
 

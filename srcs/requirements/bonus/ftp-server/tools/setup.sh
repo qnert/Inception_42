@@ -2,7 +2,7 @@
 
 if [ ! -f "/etc/vsftpd/vsftpd_main.conf" ]; then
   envsubst '${FTP_USER}' < "/etc/vsftpd/vsftp.conf" > "/etc/vsftpd/vsftpd_main.conf"
-  mkdir -p /home/$FTP_USER/ftp
+  mkdir -p /home/$FTP_USER/ftp/files
   mkdir -p /var/run/vsftpd/empty
 
   adduser $FTP_USER --disabled-password &> /dev/null
