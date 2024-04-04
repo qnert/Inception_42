@@ -81,6 +81,16 @@ services:
     ports:
       - "8085:8085"
     restart: always
+  portainer:
+    container_name: portainer
+    build: ./requirements/bonus/portainer/.
+    networks:
+      - inception
+    ports:
+      - "9000:9000"
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+    restart: always
 
 
 
