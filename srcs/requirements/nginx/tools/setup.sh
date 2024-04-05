@@ -6,7 +6,7 @@ fi
 
 chmod 700 $CERTS_
 
-envsubst '${CERTS_}' < "/etc/nginx/conf.d/default.conf" > "/etc/nginx/conf.d/nginx.conf"
+envsubst '${CERTS_} ${DOMAIN}' < "/etc/nginx/conf.d/default.conf" > "/etc/nginx/conf.d/nginx.conf"
 
 rm -f /etc/nginx/conf.d/default.conf
 

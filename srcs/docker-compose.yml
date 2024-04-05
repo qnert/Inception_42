@@ -88,6 +88,8 @@ services:
       - inception
     ports:
       - "9000:9000"
+    env_file:
+      - .env
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
     restart: always
